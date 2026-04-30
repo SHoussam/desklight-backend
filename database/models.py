@@ -1,6 +1,6 @@
 from typing import Optional
 from datetime import date
-from database.models import Field, SQLModel
+from sqlmodel import Field, SQLModel 
 from datetime import time
 
 # ======================
@@ -104,13 +104,6 @@ class AppSettings(SQLModel, table=True):
     theme: str
 
 
-class Task(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True)
-    user_id: int = Field(foreign_key="user.id")
-    title: str
-    module: str
-    due_date: date
-    completed: bool = Field(default=False)
 
 class LoginSchema(SQLModel):
     email: str
