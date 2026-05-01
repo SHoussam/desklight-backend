@@ -26,7 +26,6 @@ class Task(SQLModel, table=True):
     completed: bool = Field(default=False)
 
 
-# ======================
 # STUDY MODULES
 # ======================
 class StudyModule(SQLModel, table=True):

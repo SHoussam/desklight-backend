@@ -1,6 +1,6 @@
 
 from sqlmodel import create_engine, Session, SQLModel
-from database import models
+from database.models import models
 mysql_url = "mysql+pymysql://root:@localhost/desklight_db"
 
 engine = create_engine(mysql_url)

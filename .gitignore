@@ -1,11 +1,6 @@
-# Ignore compiled Python files
+
 *.pyc
 __pycache__/
-
-# Ignore environment files
-.env
 .venv/
-venv/
-
-# Ignore database files
-*database.conection
+.env
+seed.py

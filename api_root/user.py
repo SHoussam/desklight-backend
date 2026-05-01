@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 from database.conection import get_session
-from database.models import User, LoginSchema , SignupSchema
+from database.models.models import User, LoginSchema , SignupSchema
 from securety import get_current_user , hash_password , verify_password
 import secrets
 

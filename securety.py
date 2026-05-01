@@ -2,7 +2,7 @@ from fastapi import Security, HTTPException, status , Depends
 from fastapi.security import APIKeyHeader
 from sqlmodel import Session, select
 from database.conection import get_session
-from database.models import User
+from database.models.models import User
 import bcrypt
 
 # hash password
