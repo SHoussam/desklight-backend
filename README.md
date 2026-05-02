@@ -62,7 +62,7 @@ This is the backend for the DeskLight project, built with FastAPI and SQLModel. 
 
 ### App Settings
 - `GET /api/app-settings/` — Get app settings for current user
-- `PUT /api/app-settings/{settings_id}` — Update app settings
+- `PUT /api/app-settings/` — Update app settings
 ## Database Models
 
 - **User**: id, name, email, password, api_key
