@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlmodel import Session, select
 from database.conection import get_session
-from database.models.models import User, LoginSchema , SignupSchema
+from database.models.models import User
 from securety import get_current_user , hash_password , verify_password
 import secrets
-
+from database.models.using_models import LoginSchema , SignupSchema
 
 router = APIRouter()
 

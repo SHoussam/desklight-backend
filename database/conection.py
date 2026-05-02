@@ -1,7 +1,13 @@
 
+import os
+from dotenv import load_dotenv
 from sqlmodel import create_engine, Session, SQLModel
+
+load_dotenv()
+
 from database.models import models
-mysql_url = "mysql+pymysql://root:@localhost/desklight_db"
+
+mysql_url = os.getenv("DATABASE_URL")
 
 engine = create_engine(mysql_url)
 

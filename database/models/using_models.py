@@ -1,6 +1,5 @@
 from sqlmodel import  SQLModel 
-from datetime import date
-from typing import Optional
+from datetime import date , time
 
 
 
@@ -19,10 +18,10 @@ class TaskRead(SQLModel):
 
 
 class TaskUpdate(SQLModel):
-    title: Optional[str] = None
-    module: Optional[str] = None
-    due_date: Optional[date] = None
-    completed: Optional[bool] = None
+    title: str | None = None
+    module: str | None = None
+    due_date: date | None = None
+    completed: bool | None = None
 
 
 # ======================
@@ -32,22 +31,22 @@ class StudyModuleCreate(SQLModel):
     name: str
     confidence: str
     progress: int
-    exam_date: Optional[date] = None
+    exam_date: date | None = None
 
 
 class StudyModuleRead(SQLModel):
-    id: Optional[int]
+    id: int | None
     name: str
     confidence: str
     progress: int
-    exam_date: Optional[date] = None
+    exam_date: date | None = None
 
 
 class StudyModuleUpdate(SQLModel):
-    name: Optional[str] = None
-    confidence: Optional[str] = None
-    progress: Optional[int] = None
-    exam_date: Optional[date] = None
+    name: str | None = None
+    confidence: str | None = None
+    progress: int | None = None
+    exam_date: date | None = None
 
 
 # ======================
@@ -56,26 +55,26 @@ class StudyModuleUpdate(SQLModel):
 class ScheduleEventCreate(SQLModel):
     title: str
     date: date
-    time: Optional[str] = None
+    time: time | None = None
     category: str
-    notes: Optional[str] = None
+    notes: str | None = None
 
 
 class ScheduleEventRead(SQLModel):
-    id: Optional[int]
+    id: int | None
     title: str
     date: date
-    time: Optional[str] = None
+    time: time | None
     category: str
-    notes: Optional[str] = None
+    notes: str | None = None
 
 
 class ScheduleEventUpdate(SQLModel):
-    title: Optional[str] = None
-    date: Optional[date] = None
-    time: Optional[str] = None
-    category: Optional[str] = None
-    notes: Optional[str] = None
+    title: str | None = None
+    date: date | None = None
+    time: time | None = None
+    category: str | None = None
+    notes: str | None = None
 
 
 # ======================
@@ -89,7 +88,7 @@ class ExpenseCreate(SQLModel):
 
 
 class ExpenseRead(SQLModel):
-    id: Optional[int]
+    id: int | None
     name: str
     amount: float
     category: str
@@ -97,10 +96,10 @@ class ExpenseRead(SQLModel):
 
 
 class ExpenseUpdate(SQLModel):
-    name: Optional[str] = None
-    amount: Optional[float] = None
-    category: Optional[str] = None
-    date: Optional[date] = None
+    name: str | None = None
+    amount: float | None = None
+    category: str | None = None
+    date: date | None = None
 
 
 # ======================
@@ -111,27 +110,27 @@ class MoodEntryCreate(SQLModel):
     energy: int
     stress: int
     sleep: float
-    note: Optional[str] = None
+    note: str | None = None
     date: date
 
 
 class MoodEntryRead(SQLModel):
-    id: Optional[int]
+    id: int | None
     mood: str
     energy: int
     stress: int
     sleep: float
-    note: Optional[str] = None
+    note: str | None = None
     date: date
 
 
 class MoodEntryUpdate(SQLModel):
-    mood: Optional[str] = None
-    energy: Optional[int] = None
-    stress: Optional[int] = None
-    sleep: Optional[float] = None
-    note: Optional[str] = None
-    date: Optional[date] = None
+    mood: str | None = None
+    energy: int | None = None
+    stress: int | None = None
+    sleep: float | None = None
+    note: str | None = None
+    date: date | None = None
 
 
 # ======================
@@ -139,44 +138,52 @@ class MoodEntryUpdate(SQLModel):
 # ======================
 class JournalEntryCreate(SQLModel):
     title: str
-    mood: Optional[str] = None
+    mood: str | None = None
     category: str
     text: str
     date: date
 
 
 class JournalEntryRead(SQLModel):
-    id: Optional[int]
+    id: int | None
     title: str
-    mood: Optional[str] = None
+    mood: str | None = None
     category: str
     text: str
     date: date
 
 
 class JournalEntryUpdate(SQLModel):
-    title: Optional[str] = None
-    mood: Optional[str] = None
-    category: Optional[str] = None
-    text: Optional[str] = None
-    date: Optional[date] = None
+    title: str | None = None
+    mood: str | None = None
+    category: str | None = None
+    text: str | None = None
+    date: date | None = None
 
 
 # ======================
 # APP SETTINGS
 # ======================
-class AppSettingsCreate(SQLModel):
-    user_name: str
-    dashboard_title: str
-
 
 class AppSettingsRead(SQLModel):
-    id: Optional[int]
-    user_name: str
+    user_name: str 
     dashboard_title: str
-
+    currency: str
+    tone: str
+    theme: str
 
 class AppSettingsUpdate(SQLModel):
-    user_name: Optional[str] = None
-    dashboard_title: Optional[str] = None
+    dashboard_title: str | None = None
+    currency: str | None = None
+    tone: str | None = None
+    theme: str | None = None
 # ======================
+
+class LoginSchema(SQLModel):
+    email: str
+    password: str
+
+class SignupSchema(SQLModel):
+    name: str
+    email: str
+    password: str

@@ -12,8 +12,8 @@ router = APIRouter()
 def get_schedule_events(current_user: User = Depends(get_current_user), session: Session = Depends(get_session)):
     statement = select(ScheduleEvent).where(ScheduleEvent.user_id == current_user.id)
     events = session.exec(statement).all()
-    events = [ScheduleEventRead.from_orm(event) for event in events]
-    return events
+    eventse = [ScheduleEventRead.from_orm(event) for event in events]
+    return eventse
 
 
 @router.post("/schedule-events/")
