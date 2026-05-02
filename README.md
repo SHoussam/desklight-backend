@@ -7,7 +7,7 @@ This is the backend for the DeskLight project, built with FastAPI and SQLModel. 
 - `main.py` — FastAPI app entry point and route registration
 - `api_root/` — API endpoint logic (user and task routes)
 - `database/` — Database connection and all data models
-	- `models/` — User, Task, StudyModule, ScheduleEvent, Expense, MoodEntry, JournalEntry, AppSettings schemas
+    - `models/` — User, Task, StudyModule, ScheduleEvent, Expense, MoodEntry, JournalEntry, AppSettings schemas
 - `securety.py` — Security and authentication utilities
 
 ## Features
@@ -62,10 +62,7 @@ This is the backend for the DeskLight project, built with FastAPI and SQLModel. 
 
 ### App Settings
 - `GET /api/app-settings/` — Get app settings for current user
-- `POST /api/app-settings/` — Create app settings
 - `PUT /api/app-settings/{settings_id}` — Update app settings
-- `DELETE /api/app-settings/{settings_id}` — Delete app settings
-
 ## Database Models
 
 - **User**: id, name, email, password, api_key
