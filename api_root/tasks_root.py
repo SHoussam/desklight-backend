@@ -1,6 +1,6 @@
 from fastapi import APIRouter , Depends
 from database.models.models import  User ,Task
-from database.models.task_models import TaskCreate , TaskRead , TaskUpdate
+from database.models.using_models import TaskCreate , TaskRead , TaskUpdate
 from securety import get_current_user
 from sqlmodel import Session , select
 from database.conection import get_session

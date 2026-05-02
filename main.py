@@ -1,16 +1,19 @@
 from fastapi import FastAPI
-from api_root.user import login_user, read_users_me, signup_user
 from database.conection import create_db_and_tables
-from api_root.tasks_root import get_tasks, create_task, update_task, delete_task
+from api_root import user, tasks_root, study_modules_root, schedule_events_root, expenses_root, mood_entries_root, journal_entries_root, app_settings_root
+
 app = FastAPI()
 create_db_and_tables()
-app.add_api_route("/login", login_user, methods=["POST"])
-app.add_api_route("/user", read_users_me, methods=["GET"])
-app.add_api_route("/signup", signup_user, methods=["POST"])
-app.add_api_route("/tasks", get_tasks, methods=["GET"])
-app.add_api_route("/tasks", create_task, methods=["POST"])
-app.add_api_route("/tasks/{task_id}", update_task, methods=["PUT"])
-app.add_api_route("/tasks/{task_id}", delete_task, methods=["DELETE"])
+
+# Include routers
+app.include_router(user.router, prefix="/api", tags=["Auth & User"])
+app.include_router(tasks_root.router, prefix="/api", tags=["Tasks"])
+app.include_router(study_modules_root.router, prefix="/api", tags=["Study Modules"])
+app.include_router(schedule_events_root.router, prefix="/api", tags=["Schedule Events"])
+app.include_router(expenses_root.router, prefix="/api", tags=["Expenses"])
+app.include_router(mood_entries_root.router, prefix="/api", tags=["Mood Entries"])
+app.include_router(journal_entries_root.router, prefix="/api", tags=["Journal Entries"])
+app.include_router(app_settings_root.router, prefix="/api", tags=["App Settings"])
 
 
 

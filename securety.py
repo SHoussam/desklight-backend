@@ -25,7 +25,8 @@ def get_current_user(
     if not api_key:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Missing x-api-key header"
+            detail="Authentication required. Missing 'x-api-key' header. Please provide a valid API key in the request headers.",
+            headers={"WWW-Authenticate": "ApiKeyHeader"}
         )
     
 
@@ -36,7 +37,8 @@ def get_current_user(
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid API Key"
+            detail="Invalid or expired API Key. Please check your credentials and try again. If you don't have an API key, please sign up for an account.",
+            headers={"WWW-Authenticate": "ApiKeyHeader"}
         )
         
     # If everything is good, hand the user object to the endpoint
