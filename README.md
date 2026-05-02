@@ -74,16 +74,4 @@ This is the backend for the DeskLight project, built with FastAPI and SQLModel. 
 - **JournalEntry**: id, user_id, title, mood, category, text, date
 - **AppSettings**: id, user_id, user_name, dashboard_title
 
-## Getting Started
 
-1. Clone the repository
-2. Create a virtual environment and activate it
-3. Install dependencies: `pip install -r requirements.txt`
-4. Ensure MySQL is running and update the connection string in `database/conection.py` if needed
-5. Run the server: `uvicorn main:app --reload`
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-MIT
