@@ -1,7 +1,6 @@
 from typing import Optional
-from datetime import date
+from datetime import date as date_type, time as time_type
 from sqlmodel import Field, SQLModel
-from datetime import time
 
 
 # ======================
@@ -23,7 +22,7 @@ class Task(SQLModel, table=True):
     user_id: int = Field(foreign_key="user.id")
     title: str
     module: str
-    due_date: date
+    due_date: Optional[date_type] = None
     completed: bool = Field(default=False)
 
 
@@ -35,7 +34,7 @@ class StudyModule(SQLModel, table=True):
     name: str
     confidence: str  # you can later convert to Enum
     progress: int  # percentage (0–100)
-    exam_date: Optional[date] = None
+    exam_date: Optional[date_type] = None
 
 
 # ======================
@@ -45,8 +44,8 @@ class ScheduleEvent(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     user_id: int = Field(foreign_key="user.id")
     title: str
-    date: date
-    time: time
+    date: date_type
+    time: Optional[time_type] = None
     category: str
     notes: Optional[str] = None
 
@@ -60,7 +59,7 @@ class Expense(SQLModel, table=True):
     name: str
     amount: float
     category: str
-    date: date
+    date: date_type
 
 
 # ======================
@@ -74,7 +73,7 @@ class MoodEntry(SQLModel, table=True):
     stress: int  # 0–100
     sleep: float  # hours
     note: Optional[str] = None
-    date: date
+    date: date_type
 
 
 # ======================
@@ -87,7 +86,7 @@ class JournalEntry(SQLModel, table=True):
     mood: Optional[str] = None
     category: str
     text: str
-    date: date
+    date: date_type
 
 
 # ======================
